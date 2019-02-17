@@ -10,7 +10,7 @@
 			</div>
 			<div class="header-h1"><slot>标题</slot></div>
 			<div :class="{auto:autoWidth==1}" class="right-wrap flex" @click="rightClick" >
-				<slot name="right">dkep</slot>
+				<slot name="right"></slot>
 			</div>
 		</div>
 	</header>
