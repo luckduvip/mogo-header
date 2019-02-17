@@ -1,6 +1,6 @@
 <template>
 <div>
-	<header class="header" :class="theme">
+	<header class="header" :class="theme" ref="header">
 		<div class="header-main">
 			<div :class="{auto:autoWidth==1}" class="left-wrap flex" @click="leftClick">
 				<slot name="left">
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import Mogo from 'mogo-lib';
 export default{
 	data(){
 		return {
@@ -40,10 +41,11 @@ export default{
 	},
 	methods: {
 		initHeader(){
+			var header = this.$refs.header;
+			console.log(Mogo,Mogo.ApiTool);
+			Mogo.ApiTool.fixStatusBar(header);
+			this.headerHeight = this.getHeaderHeight();
 			/*
-			 *var header = this.$refs.header;
-			 *this.$api.fixStatusBar(header);
-			 *this.headerHeight = this.getHeaderHeight();
 			 *api.setStatusBarStyle({
 			 *    style: 'dark'
 			 *});
